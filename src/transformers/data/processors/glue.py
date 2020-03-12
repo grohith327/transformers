@@ -118,6 +118,7 @@ def glue_convert_examples_to_features(
 
         if output_mode == "classification":
             label = label_map[example.label]
+            print(label)
         elif output_mode == "regression":
             label = float(example.label)
         else:
@@ -515,7 +516,7 @@ class WnliProcessor(DataProcessor):
             examples.append(InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
         return examples
 
-class BoolQPocessor(DataProcessor):
+class BoolQProcessor(DataProcessor):
 
     def get_example_from_tensor_dict(self, tensor_dict):
         """See base class."""
