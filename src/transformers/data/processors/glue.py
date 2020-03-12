@@ -117,8 +117,8 @@ def glue_convert_examples_to_features(
         )
 
         if output_mode == "classification":
+            print(example.label, label_map)
             label = label_map[example.label]
-            print(label)
         elif output_mode == "regression":
             label = float(example.label)
         else:
@@ -550,6 +550,7 @@ class BoolQProcessor(DataProcessor):
             text_b = line['question']
             label = line['label']
             examples.append(InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
+        print("Examples:\n", examples)
         return examples 
 
 
